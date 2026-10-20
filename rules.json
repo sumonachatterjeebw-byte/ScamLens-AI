@@ -1,0 +1,109 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {
+      "id": "URG_01",
+      "category": "urgency",
+      "template_id": "URG_01",
+      "name": "Time-pressure threat or deadline",
+      "description": "Pressuring the recipient with short time limits or impending suspension/arrest.",
+      "pattern": "(?i)(?:within\\s+\\d+\\s+(?:minutes?|hours?))|(?:(?:account|card|sim|number)\\s+(?:will\\s+be|has\\s+been|face[s]?)\\s+(?:blocked|suspended|closed|locked|closure))|(?:(?:act|reply|pay|verify|send)\\s+(?:now|immediately|today|urgently))|(?:card|account)\\s+closure|(?:last\\s+chance)|(?:final\\s+notice)",
+      "severity": "medium",
+      "explanation": "Urgency can pressure people to act before verifying.",
+      "suppressors": [
+        "(?i)due\\s+on\\s+(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tomorrow|next\\s+week)",
+        "(?i)expires\\s+in\\s+\\d+\\s+minutes?"
+      ]
+    },
+    {
+      "id": "URG_02",
+      "category": "urgency",
+      "template_id": "URG_02",
+      "name": "Legal action or arrest threat",
+      "description": "Threatening police involvement, arrest warrants, legal prosecution, or fines.",
+      "pattern": "(?i)(?:arrest|legal\\s+action|police|fine|warrant|prosecution|court\\s+order)",
+      "severity": "high",
+      "explanation": "Threats of immediate arrest or legal action are commonly used to coerce compliance.",
+      "suppressors": []
+    },
+    {
+      "id": "CRD_01",
+      "category": "credential",
+      "template_id": "CRD_01",
+      "name": "OTP / Credential request",
+      "description": "Requesting OTPs, passwords, PINs, or card security codes.",
+      "pattern": "(?i)(?:otp|one-time\\s+(?:pass)?code|verification\\s+code|password|passcode|pin|upi\\s+pin|cvv|recovery\\s+code)(?:[^\n.]{0,40})(?:send|share|tell|give|forward|reply|enter|confirm|read\\s+out)|(?:send|share|tell|give|forward|reply|enter|confirm|read\\s+out)(?:[^\n.]{0,40})(?:otp|one-time\\s+(?:pass)?code|verification\\s+code|password|passcode|pin|upi\\s+pin|cvv|recovery\\s+code)",
+      "severity": "high",
+      "explanation": "Authentication codes and PINs should never be shared with anyone.",
+      "suppressors": [
+        "(?i)(?:do\\s+not|don't|never)\\s+(?:share|disclose|give|tell|forward|send)"
+      ]
+    },
+    {
+      "id": "MON_01",
+      "category": "money",
+      "template_id": "MON_01",
+      "name": "Upfront fee or suspicious payment method",
+      "description": "Demanding registration fees, gift cards, cryptocurrency, or wire transfers.",
+      "pattern": "(?i)(?:registration|processing|security|training|kit|refundable|deposit|customs|clearance|delivery)\\s+fee|gift\\s+cards?|bitcoin|crypto|usdt|western\\s+union|wire\\s+transfer|advance\\s+(?:payment|amount)",
+      "severity": "high",
+      "explanation": "Legitimate employers, institutions, or delivery services do not demand upfront fees or payment in gift cards/crypto.",
+      "suppressors": []
+    },
+    {
+      "id": "MON_02",
+      "category": "money",
+      "template_id": "MON_02",
+      "name": "Demand for immediate payment",
+      "description": "Direct requests to transfer or pay money.",
+      "pattern": "(?i)(?:pay|send|transfer)\\s+(?:(?:usd|inr|eur|gbp|\\$|₹|€|£)?\\s*\\d+(?:[,.]\\d+)?)",
+      "severity": "medium",
+      "explanation": "Verify payment requests independently before transferring any money.",
+      "suppressors": []
+    },
+    {
+      "id": "RWD_01",
+      "category": "reward",
+      "template_id": "RWD_01",
+      "name": "Unrealistic reward or unsolicited win",
+      "description": "Claims of lottery wins, guaranteed income, or jobs requiring no interview/experience.",
+      "pattern": "(?i)you(?:'ve|\\s+have)\\s+(?:won|been\\s+selected)|lottery|lucky\\s+draw|jackpot|guaranteed\\s+(?:income|returns?|profit|job|placement)|earn\\s+\\d[\\d,]*\\s*(?:per|a)\\s*(?:day|week|hour)|no\\s+(?:experience|interview)\\s+(?:needed|required)",
+      "severity": "medium",
+      "explanation": "Unexpected rewards or jobs promising high pay with no interview are common lure tactics.",
+      "suppressors": []
+    },
+    {
+      "id": "IMP_01",
+      "category": "impersonation",
+      "template_id": "IMP_01",
+      "name": "Institutional impersonation cue",
+      "description": "Claiming to represent a bank, official department, customs, HR, or law enforcement.",
+      "pattern": "(?i)(?:this\\s+is|calling\\s+from|message\\s+from|we\\s+are)\\s+(?:the\\s+)?(?:your\\s+)?(?:bank|recruiter|hr|customer\\s+care|support|police|tax\\s+office|customs|courier|government)|(?:kyc|account)\\s+(?:update|verification)\\s+(?:pending|required)|official\\s+(?:representative|officer)",
+      "severity": "medium",
+      "explanation": "The claim alone does not verify the sender's identity. Impersonation of institutions is frequent in scam messages.",
+      "suppressors": []
+    },
+    {
+      "id": "SEC_01",
+      "category": "secrecy",
+      "template_id": "SEC_01",
+      "name": "Channel shift to private messaging or secrecy",
+      "description": "Directing communication to Telegram or WhatsApp, or demanding secrecy from family/banks.",
+      "pattern": "(?i)(?:contact|message|chat|interview)\\s*(?:us|me|hr)?\\s*(?:on|via)\\s*(?:whatsapp|telegram)|do\\s+not\\s+(?:tell|inform)\\s+(?:anyone|family|bank)",
+      "severity": "medium",
+      "explanation": "Moving to private encrypted chat apps or requesting secrecy makes checking harder and shields scammers.",
+      "suppressors": []
+    }
+  ],
+  "url_heuristics": {
+    "shorteners": [
+      "bit.ly", "tinyurl.com", "t.co", "goo.gl", "is.gd", "cutt.ly", "rb.gy", "ow.ly", "shorturl.at"
+    ],
+    "known_brands": [
+      "paypal", "apple", "google", "microsoft", "amazon", "netflix", "chase", "bankofamerica", "wellsfargo", "sbi", "hdfc", "icici", "fictbank"
+    ],
+    "risky_tlds": [
+      "xyz", "top", "work", "loan", "click", "rest", "buzz", "gq", "cf", "tk", "ml", "ga"
+    ]
+  }
+}

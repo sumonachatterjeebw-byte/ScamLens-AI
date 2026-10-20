@@ -1,0 +1,21 @@
+[
+  "backend/tests/test_suite.py::test_evidence_quote_validity",
+  "backend/tests/test_suite.py::test_multi_message_storyline",
+  "backend/tests/test_suite.py::test_privacy_receipt_structure",
+  "backend/tests/test_suite.py::test_recovery_guide_endpoint",
+  "backend/tests/test_suite.py::test_t10_pii_redaction",
+  "backend/tests/test_suite.py::test_t11_failure_transparency",
+  "backend/tests/test_suite.py::test_t12_obfuscated_zero_tp",
+  "backend/tests/test_suite.py::test_t13_non_english_message",
+  "backend/tests/test_suite.py::test_t17_shield_manifest_privacy",
+  "backend/tests/test_suite.py::test_t1_otp_account_threat",
+  "backend/tests/test_suite.py::test_t2_internship_fee",
+  "backend/tests/test_suite.py::test_t3_legitimate_library_note",
+  "backend/tests/test_suite.py::test_t4_suppressor_legitimate_otp",
+  "backend/tests/test_suite.py::test_t5_ambiguous_recruiter_note",
+  "backend/tests/test_suite.py::test_t6_empty_or_whitespace",
+  "backend/tests/test_suite.py::test_t7_length_limits",
+  "backend/tests/test_suite.py::test_t8_ip_address_url",
+  "backend/tests/test_suite.py::test_t9_shortened_link_heuristics",
+  "backend/tests/test_suite.py::test_what_would_change_and_verification_guide"
+]

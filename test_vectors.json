@@ -1,0 +1,74 @@
+[
+  {
+    "id": "T1",
+    "name": "Sample 1: OTP / Account Threat",
+    "input": "ALERT: Your FictBank account will be blocked in 10 minutes due to incomplete KYC. Send your OTP to confirm and avoid suspension: http://fictbank-verify.example/kyc",
+    "expected_categories": ["urgency", "credential", "url", "impersonation"],
+    "forbidden_categories": [],
+    "min_caution_level": "moderate",
+    "notes": "Classic banking phishing scam with severe time threat and OTP solicitation"
+  },
+  {
+    "id": "T2",
+    "name": "Sample 2: Fake Internship Fee",
+    "input": "Congratulations! You are selected for a Data Analyst internship at Northwind Demo Ltd, earning 40,000 per month with no interview required. To receive your offer letter, pay a refundable registration fee of 2,500 today. Contact our HR on Telegram.",
+    "expected_categories": ["reward", "money", "secrecy"],
+    "forbidden_categories": [],
+    "min_caution_level": "moderate",
+    "notes": "Job scam requiring upfront deposit and redirecting to Telegram"
+  },
+  {
+    "id": "T3",
+    "name": "Sample 3: Legitimate Library Note",
+    "input": "Hi, your library book “Intro to Statistics” is due on Friday. You can renew it on the library website or at the front desk. No action is needed if you have already returned it.",
+    "expected_categories": [],
+    "forbidden_categories": ["urgency", "credential", "money", "reward"],
+    "min_caution_level": "none_detected",
+    "notes": "Neutral reminder that should trigger zero findings"
+  },
+  {
+    "id": "T4",
+    "name": "Legitimate OTP Delivery with Sharing Warning",
+    "input": "Your verification code is 482913. Do not share this code with anyone.",
+    "expected_categories": [],
+    "forbidden_categories": ["credential"],
+    "min_caution_level": "none_detected",
+    "notes": "Legitimate OTP delivery warning user NOT to share, must suppress credential finding"
+  },
+  {
+    "id": "T5",
+    "name": "Sample 4: Ambiguous Recruiter Note",
+    "input": "Hello, this is Priya from Contoso Campus Recruitment. We would like to schedule a short call about your application. Please confirm your availability today or tomorrow by replying to this message.",
+    "expected_categories": [],
+    "forbidden_categories": ["credential", "money"],
+    "min_caution_level": "none_detected",
+    "notes": "Ambiguous recruiter note; may trigger low impersonation cue or no finding; sender unverified"
+  },
+  {
+    "id": "T8",
+    "name": "Bare IP Address Login URL",
+    "input": "Access your portal directly at http://192.0.2.1/login immediately",
+    "expected_categories": ["url"],
+    "forbidden_categories": [],
+    "min_caution_level": "low",
+    "notes": "IP address URL detection"
+  },
+  {
+    "id": "T9",
+    "name": "Shortened Link URL",
+    "input": "Track here: https://bit.ly/abc123 to receive parcel",
+    "expected_categories": ["url"],
+    "forbidden_categories": [],
+    "min_caution_level": "low",
+    "notes": "URL shortener detection hiding true destination"
+  },
+  {
+    "id": "T10",
+    "name": "PII Masking Verification",
+    "input": "Contact support at test.user@example.com or call +1 555 0100 for card 4111222233334444 account renewal.",
+    "expected_categories": [],
+    "forbidden_categories": [],
+    "min_caution_level": "none_detected",
+    "notes": "Masks emails, phone numbers, and card numbers"
+  }
+]
