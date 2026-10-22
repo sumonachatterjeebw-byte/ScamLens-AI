@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import InputPanel from './components/InputPanel';
-import ResultPanel from './components/ResultPanel';
-import SampleList from './components/SampleList';
-import ShieldSimulator from './components/ShieldSimulator';
-import PortfolioOverview from './components/PortfolioOverview';
-import LearningLab from './components/LearningLab';
+import Header from './Header';
+import InputPanel from './InputPanel';
+import ResultPanel from './ResultPanel';
+import SampleList from './SampleList';
+import ShieldSimulator from './ShieldSimulator';
+import PortfolioOverview from './PortfolioOverview';
+import LearningLab from './LearningLab';
 import { analyzeMessage, checkServerHealth } from './api';
 import { SAMPLE_MESSAGES } from './samples';
 
