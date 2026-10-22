@@ -1,5 +1,5 @@
 import { analyzeMessageLocal, analyzeStorylineLocal } from './localEngine';
-import rulesData from '../../rules/rules.json';
+import rulesData from '../../rules.json';
 
 const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
 
