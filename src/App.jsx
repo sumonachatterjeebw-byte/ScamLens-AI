@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header.jsx';
-import InputPanel from './InputPanel';
-import ResultPanel from './ResultPanel';
-import SampleList from './SampleList';
-import ShieldSimulator from './ShieldSimulator';
-import PortfolioOverview from './PortfolioOverview';
-import LearningLab from './LearningLab';
-import { analyzeMessage, checkServerHealth } from './api';
-import { SAMPLE_MESSAGES } from './samples';
+import InputPanel from './InputPanel.jsx';
+import ResultPanel from './ResultPanel.jsx';
+import SampleList from './SampleList.jsx';
+import ShieldSimulator from './ShieldSimulator.jsx';
+import PortfolioOverview from './PortfolioOverview.jsx';
+import LearningLab from './LearningLab.jsx';
+import { analyzeMessage, checkServerHealth } from './api.js';
+import { SAMPLE_MESSAGES } from './samples.js';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('inspector'); // 'inspector' | 'shield' | 'learn' | 'portfolio'
