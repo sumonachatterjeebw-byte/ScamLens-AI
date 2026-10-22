@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Header';
+import Header from './Header.jsx';
 import InputPanel from './InputPanel';
 import ResultPanel from './ResultPanel';
 import SampleList from './SampleList';
